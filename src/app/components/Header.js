@@ -9,7 +9,9 @@ export default class Header extends React.Component {
 		return (
 
 			<nav>
-			<div id="headerTitleHolder"><small>COIN SUMMARY</small></div>
+				<div id="headerTitleHolder">
+					<small>COIN SUMMARY</small>
+				</div>
 			</nav>
 
 			)
