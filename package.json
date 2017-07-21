@@ -4,7 +4,9 @@
   "description": "A simple application that given a number of pennies will calculate the minimum number of Sterling coins needed to make that amount.",
   "main": "server.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --content-base src/ --inline --hot --history-api-fallback",
+    "postinstall": "webpack -p && cp src/index.html dist/index.html && cp src/server.js dist/server.js"
   },
   "repository": {
     "type": "git",
@@ -38,9 +40,11 @@
   },
   "devDependencies": {
     "babel-jest": "20.0.3",
+    "env": "0.0.2",
     "enzyme": "2.9.1",
     "jest": "20.0.4",
     "react-test-renderer": "15.6.1",
-    "sinon": "2.3.8"
+    "sinon": "2.3.8",
+    "webpack-dev-server": "2.5.1"
   }
 }
