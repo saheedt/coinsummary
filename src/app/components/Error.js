@@ -8,11 +8,7 @@ export default class Error extends React.Component {
 
 	render(){
 		return(
-
-			<div id="errorContainer" >
-				<center><span id="errorMsg">{this.props.errorMessage}</span></center>
-			</div>
-
+			<center><span id="errorMsg">{this.props.errorMessage}</span></center>
 		)
 	}
 

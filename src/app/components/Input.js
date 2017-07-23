@@ -7,11 +7,7 @@ export default class Input extends React.Component{
 
 	render(){
 		return(
-
-			<div>
-				<input tabIndex="0" onKeyDown={this.props.handleKeyDown(event)} type="text" id="amountInput" className="form-control" placeholder="amount" name="amount" />
-
-			</div>
+			<center><input tabIndex="0" onKeyDown={this.props.handleKeyDown(event)} type="text" id="amountInput" className="form-control" placeholder="amount" name="amount" /></center>
 
 		)
 	}
