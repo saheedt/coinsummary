@@ -57,7 +57,7 @@ export default class CoinApp extends React.Component{
 			return {"validationError": 'invalid input'}
 
 		}else if(splitPoint.length > 1 && !/\d+/g.test(splitPoint[1])/*.includes('\d')*/){
-			console.log('here 4');
+
 			return {"validationError": 'invalid input'}
 
 		}
