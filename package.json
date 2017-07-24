@@ -4,6 +4,7 @@
   "description": "A simple application that given a number of pennies will calculate the minimum number of Sterling coins needed to make that amount.",
   "main": "server.js",
   "scripts": {
+    "start": "node dist/server.js",
     "test": "jest",
     "dev": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --content-base src/ --inline --hot --history-api-fallback",
     "postinstall": "webpack -p && cp src/index.html dist/index.html && cp src/server.js dist/server.js"

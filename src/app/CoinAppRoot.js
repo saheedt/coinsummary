@@ -1,3 +1,6 @@
+/**
+* Root component which is the entry point into the dom.
+*/
 import React from 'react';
 import ReactDOM from 'react-dom';
 
