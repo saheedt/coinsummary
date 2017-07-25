@@ -24,7 +24,18 @@ describe('CoinApp component default state.', ()=>{
 	test('Should have 1 div tag', () => {
 		expect(wrapper.find('div')).toHaveLength(5)
 	});
-	test('should have div with id error-container-empty', () => {
+	test('should have <div> tag with id #error-container-empty', () => {
 		expect(wrapper.find('#error-container-empty')).toHaveLength(1);
 	});
+})
+
+describe('CoinApp component on state change.', ()=>{
+	const wrapper = shallow(<CoinApp />);
+
+	test('should have <div> tag with id #errorContainer', ()=>{
+		wrapper.instance().setState({Error: 'valid character in the wrong position'});
+
+		expect(wrapper.find('#error-container-empty')).toHaveLength(0);
+		expect(wrapper.find('#errorContainer')).toHaveLength(1);
+	})
 })
