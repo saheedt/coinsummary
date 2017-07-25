@@ -3,9 +3,15 @@ A simple application that given a number of pennies will calculate the minimum n
 
 ## Installation
 
-* To run this app, you need to first install it's dependencies by running the command: ``` npm install ``` .
+* To run this app, you need to first install it's dependencies by running the command: ``` npm install ```  from the app root directory.
+
+## Running Application
+
+* After installing dependencies, run ``` npm start ``` .
 
 ## Test
+
+* To run test, you need to first install app dependencies, then run ``` npm test ``` .
 
 
 ## Author
