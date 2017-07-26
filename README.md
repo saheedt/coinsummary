@@ -9,11 +9,12 @@ A simple application that given a number of pennies will calculate the minimum n
 
 * After installing dependencies, run ``` npm start ``` .
 
+* On browser of choice navigate to ``` http://localhost:8080 ```
+
 ## Test
 
 * To run test, you need to first install app dependencies, then run ``` npm test ``` .
 
-* On browser of choice navigate to ``` http://localhost:8080 ```
 
 ## NOTE
 
