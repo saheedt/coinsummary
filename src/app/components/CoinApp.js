@@ -40,9 +40,15 @@ export default class CoinApp extends React.Component{
 						{value: 2, symbol:'2p'}, {value: 1, symbol:'1p'}]
 	}
 	componentDidMount(){
+		/**
+		* Listen for keydown events on component successful mount
+		*/
 		window.addEventListener('keydown', this.handleKeyDown);
 	}
 	componentWillUnmount(){
+		/**
+		* Romove Listener for keydown events before component unmount
+		*/
 		window.removeEventListener('keydown', this.handleKeyDown);
 	}
 	validateInput(input){

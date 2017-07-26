@@ -4,7 +4,6 @@ export default class Input extends React.Component{
 	constructor(props){
 		/**
    		* Component for displaying input field.
-   		* @prop {function} handleKeyDown
    		*/
 		super(props);
 	}
