@@ -1,8 +1,9 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount , shallow } from 'enzyme';
+import sinon from 'sinon';
 import CoinApp from '../src/app/components/CoinApp.js';
 
-describe('CoinApp component default state.', ()=>{
+describe('<CoinApp /> component default state.', ()=>{
 	const wrapper = shallow(<CoinApp />);
 	const validateInput = wrapper.instance().validateInput;
 	const parseInput = wrapper.instance().parseInput;
@@ -29,7 +30,7 @@ describe('CoinApp component default state.', ()=>{
 	});
 })
 
-describe('CoinApp component on state change.', ()=>{
+describe('<CoinApp /> component on state change.', ()=>{
 	const wrapper = shallow(<CoinApp />);
 
 	test('should have <div> tag with id #errorContainer', ()=>{
@@ -39,3 +40,14 @@ describe('CoinApp component on state change.', ()=>{
 		expect(wrapper.find('#errorContainer')).toHaveLength(1);
 	})
 })
+
+describe('<CoinApp /> keypress simulation', ()=>{
+	sinon.spy(CoinApp.prototype, 'handleKeyDown');
+	const wrapper = mount(<CoinApp />, {attachTo: document.getElementById('root')});
+
+    test('simulate keydown event', ()=>{
+    	window.keypress();
+    	expect(CoinApp.prototype.handleKeyDown.calledOnce).toEqual(true);
+    	wrapper.unmount();
+    });
+});

@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A simple application that given a number of pennies will calculate the minimum number of Sterling coins needed to make that amount.",
   "main": "server.js",
+  "engines": {
+    "node": "6.11.1"
+  },
   "scripts": {
     "start": "node dist/server.js",
     "test": "jest",
@@ -12,6 +15,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/saheedt/coinsummary.git"
+  },
+  "jest": {
+    "setupFiles" : ["<rootDir>/setupFile.js"]
   },
   "keywords": [
     "pounds",

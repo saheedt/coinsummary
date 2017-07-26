@@ -13,6 +13,12 @@ A simple application that given a number of pennies will calculate the minimum n
 
 * To run test, you need to first install app dependencies, then run ``` npm test ``` .
 
+* On browser of choice navigate to ``` http://localhost:8080 ```
+
+## NOTE
+
+* some webpack commands don't just work on windows environment, but are guaranteed to work on linux and osx environment.
+
 
 ## Author
 
