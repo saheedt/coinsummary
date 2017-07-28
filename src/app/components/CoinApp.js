@@ -19,7 +19,7 @@ export default class CoinApp extends React.Component{
 		this.toOuput = null;
 
 		/**
-   		* bind all methods to this component to avoid runtme errors
+   		* bind all methods to this component to avoid runtime errors
    		  especially when the method(s) are to be called from other components
    		*/
 		this.validateInput = this.validateInput.bind(this);
@@ -53,10 +53,10 @@ export default class CoinApp extends React.Component{
 	}
 	validateInput(input){
 		/**
-   		* Validates if input pennies amount string meets rquirements.
+   		* Validates if input pennies amount string meets requirements.
    		* £ and p characters in appropriate places, contains '£' symbol once penny value is supplied, contains 'p' if '£' is not supplied, contains digits.
    		* @param {String} input
-   		* @return {object} validationError or validationPass
+   		* @return {object}
    		*/
 		let splitPoint = input.split(".");
 		if(splitPoint.length > 1 && splitPoint[0].includes('p') || splitPoint.length > 1 && splitPoint[1].includes('£')){
@@ -119,7 +119,7 @@ export default class CoinApp extends React.Component{
 	convertToPennies(input){
 		/**
    		* converts parsed pounds/pennies Float/int into it's pennies equivalent
-   		* @param {object} or {int} input
+   		* @param {object} input
    		* @return {Float} or {int} input
    		*/
    		if(input.isPounds){
@@ -137,7 +137,7 @@ export default class CoinApp extends React.Component{
    		  with penny equivalent of the next sterling coin.
    		* The division continues till zero (0) is reached.
    		* @param {Float} or {int} input
-   		* @return {Object} output
+   		* @return {Array} output
    		*/
 		let output = [] , temp;
 		temp = this.sterlingCoins.map((coin, index)=>{
