@@ -1,39 +1,75 @@
 const path = require('path'),
-	  ExtractTextPlugin = require('extract-text-webpack-plugin'),
-	  webpack = require('webpack');
+	MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const extractPlugin = new ExtractTextPlugin({
-	filename: 'main.css'
+// const extractPlugin = new ExtractTextPlugin({
+// 	filename: 'main.css'
+// });
+const extractPlugin = new MiniCssExtractPlugin({
+	filename: 'main.css',
+	chunkFilename: 'main-id.css',
+	ignoreOrder: false
 });
 
 const DIST_DIR = path.resolve(__dirname, 'dist'),
-	  SRC_DIR = path.resolve(__dirname, 'src');
+	SRC_DIR = path.resolve(__dirname, 'src');
 
 
-let config = {
+const config = {
 	entry: SRC_DIR +'/app/CoinAppRoot.js',
 	output: {
 		path: DIST_DIR + '/app',
 		filename: 'bundle.js',
 		publicPath: '/app/'
 	},
+	externals: {
+    	cheerio: 'window',
+    	'react/lib/ExecutionEnvironment': true,
+    	'react/lib/ReactContext': true,
+  	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.js?$/,
 				include: SRC_DIR,
-				loader: "babel-loader",
 				exclude: /node_modules/,
-				query: {
-					presets: ["react", "es2015", "stage-2"]
+				// options:{
+				// 	query: {
+				// 		presets: ["@babel/preset-env", "@babel/preset-react"],
+				// 		plugins: [
+				// 			"@babel/plugin-syntax-dynamic-import",
+				// 			"@babel/plugin-syntax-import-meta",
+				// 			"@babel/plugin-proposal-class-properties",
+				// 			"@babel/plugin-proposal-json-strings",
+				// 			[
+				// 				"@babel/plugin-proposal-decorators",
+				// 				{
+				// 					"legacy": true
+				// 				}
+				// 			],
+				// 			"@babel/plugin-proposal-function-sent",
+				// 			"@babel/plugin-proposal-export-namespace-from",
+				// 			"@babel/plugin-proposal-numeric-separator",
+				// 			"@babel/plugin-proposal-throw-expressions"
+				// 		]
+				// 	}
+				// },
+				use: {
+					loader: "babel-loader",
 				}
 			},
 			{
 				test: /\.css$/,
-				loader: extractPlugin.extract({fallback: 'style-loader', use: 'css-loader'})
+				use: [
+					{
+						loader: MiniCssExtractPlugin.loader
+					},
+					'css-loader'
+				]
 			}
-
-
+			// {
+			// 	test: /\.css$/,
+			// 	loader: extractPlugin.extract({fallback: 'style-loader', use: 'css-loader'})
+			// }
 		]
 	},
 	plugins: [

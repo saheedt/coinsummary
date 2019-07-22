@@ -1,22 +1,14 @@
 import React from 'react';
 
-export default class Header extends React.Component {
-	constructor(props){
-		/**
-   		* Component for displaying page header.
-   		*/
-		super(props);
-	}
+const Header = () => (
+	/**
+	 * Component for displaying page header.
+	 */
+	<nav>
+		<div id="headerTitleHolder">
+			<small>COIN SUMMARY</small>
+		</div>
+	</nav>
+);
 
-	render(){
-		return (
-
-			<nav>
-				<div id="headerTitleHolder">
-					<small>COIN SUMMARY</small>
-				</div>
-			</nav>
-
-			)
-	}
-}
+export default Header;

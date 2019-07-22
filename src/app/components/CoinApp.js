@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Header from './Header.js';
 import Error from './Error.js';
 import Input from './Input.js';
 import Output from './Output.js';
 
-export default class CoinApp extends React.Component{
+export default class CoinApp extends Component {
 	constructor(props){
 		super(props);
 
