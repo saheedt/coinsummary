@@ -1,13 +1,14 @@
 import React from 'react';
 
-const Input = () => (
+const Input = ({keydownHandler}) => (
 	/**
 	* Component for displaying input field.
+	*	@prop {function} keydownHandler
 	*/
 	<div>
 		<h4 id="label-1">Enter Amount of Pennies</h4>
 			<center>
-				<input type="text" id="amountInput" className="form-control" placeholder="pennies amount" name="amount" />
+				<input type="text" id="amountInput" className="form-control" placeholder="pennies amount" name="amount" onKeyDown={keydownHandler} />
 			</center>
 		<h4 id="label-2">For example: 92p, £2.12</h4>
 	</div>

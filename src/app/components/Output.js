@@ -1,10 +1,12 @@
 import React from 'react';
 
-const Output = (props) => (
+const Output = ({oddEven, coinNeeded, coinValue}) => (
 	/**
    	* Component for displaying calculated sterling coins needed.
-   	* @prop {string} coinNeeded, coinValue and oddEven
+		 * @prop {string} oddEven
+		 * @prop {string} coinNeeded
+		 * @prop {string} coinValue
 	*/
-	<li className = {props.oddEven}> {props.coinNeeded} X {props.coinValue} </li>
+	<li className = {oddEven}> {coinNeeded} X {coinValue} </li>
 );
 export default Output
