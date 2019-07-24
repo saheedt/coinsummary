@@ -1,16 +1,32 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-
+import Enzyme, { shallow, mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import Input from '../src/app/components/Input.js';
 
-describe('<Input />', ()=>{
-	const wrapper = shallow(<Input />);
+Enzyme.configure({ adapter: new Adapter() });
 
-	test('rendered tags', ()=>{
+describe('<Input />', () => {
+	let wrapper;
+	const props = { keydownHandler: jest.fn() };
+
+	beforeEach(() => {
+    wrapper = shallow(<Input {...props} />);
+	});
+
+	afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+	test('rendered tags', () => {
 		expect(wrapper.find('div')).toHaveLength(1);
 		expect(wrapper.find('#label-1')).toHaveLength(1);
 		expect(wrapper.find('#label-2')).toHaveLength(1);
 		expect(wrapper.find('#amountInput')).toHaveLength(1);
+	});
 
+	test('should call the right event handler', () => {
+		const input = wrapper.find("input[type='text']");
+		input.simulate('keyDown', { keyCode: 13 });
+		expect(props.keydownHandler).toHaveBeenCalledTimes(1);
 	});
 });

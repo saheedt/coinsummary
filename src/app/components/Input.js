@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Input = ({keydownHandler}) => (
+const Input = ({keydownHandler, inputRef }) => (
 	/**
 	* Component for displaying input field.
 	*	@prop {function} keydownHandler
@@ -8,7 +8,7 @@ const Input = ({keydownHandler}) => (
 	<div>
 		<h4 id="label-1">Enter Amount of Pennies</h4>
 			<center>
-				<input type="text" id="amountInput" className="form-control" placeholder="pennies amount" name="amount" onKeyDown={keydownHandler} />
+				<input type="text" id="amountInput" ref={inputRef} className="form-control" placeholder="pennies amount" name="amount" onKeyDown={keydownHandler} />
 			</center>
 		<h4 id="label-2">For example: 92p, £2.12</h4>
 	</div>
