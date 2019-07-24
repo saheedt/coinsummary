@@ -1,9 +1,9 @@
-import {jsdom} from 'jsdom';
-
+import { JSDOM } from 'jsdom';
 
 const documentHTML = '<!doctype html><html><body><div id="root"></div></body></html>';
-global.document = jsdom(documentHTML);
-global.window = document.parentWindow;
+const { document } = (new JSDOM(documentHTML)).window;
+global.document = document;
+global.window = document.defaultView;
 
 Object.keys(window).forEach((key) => {
   if (!(key in global)) {

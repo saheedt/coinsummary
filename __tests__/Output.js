@@ -1,6 +1,9 @@
 import React from 'react';
-import { shallow , mount } from 'enzyme';
+import Enzyme, { shallow , mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import Output from '../src/app/components/Output.js';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Output />', ()=>{
 	const wrapper = shallow(<Output />);

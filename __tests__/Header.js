@@ -1,7 +1,9 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import Header from '../src/app/components/Header.js';
 
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Header />', ()=>{
 	const wrapper = shallow(<Header />)
